@@ -7,11 +7,13 @@ import { NgApexchartsModule } from 'ng-apexcharts';
 
 import { PageHeaderComponent } from './components/template/page-header/page-header.component';
 import { PieChartComponent } from './components/charts/pie-chart/pie-chart.component';
+import { NumberColorDirective } from './directives/number-color/number-color.directive';
 
 @NgModule({
   declarations: [
     PageHeaderComponent,
-    PieChartComponent
+    PieChartComponent,
+    NumberColorDirective
   ],
   imports: [
     CommonModule,
@@ -21,7 +23,8 @@ import { PieChartComponent } from './components/charts/pie-chart/pie-chart.compo
   ],
   exports: [
     PageHeaderComponent,
-    PieChartComponent
+    PieChartComponent,
+    NumberColorDirective
   ]
 })
 export class SharedModule { }
