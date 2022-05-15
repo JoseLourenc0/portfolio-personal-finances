@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import { PieChart } from '../../shared/models/charts.model';
+import { DataService } from 'src/app/shared/services/data-service/data.service';
+import { DefaultFilterOption } from 'src/app/shared/models/filters.model';
 
 @Component({
   selector: 'app-home',
@@ -14,37 +16,19 @@ export class HomePage implements OnInit {
     series: [300, 200]
   }
 
-  public filterOptions = [
-    {
-      value: 1,
-      text: 'General'
-    },
-    {
-      value: 2,
-      text: 'Expanses'
-    },
-    {
-      value: 3,
-      text: 'Earnings'
-    }
-  ]
+  public filterOptions: DefaultFilterOption[]
 
-  public filterIntervalOptions = [
-    {
-      value: 1,
-      text: 'Current Month'
-    },
-    {
-      value: 2,
-      text: 'Last Month'
-    }
-  ]
+  public filterIntervalOptions: DefaultFilterOption[]
 
   public totalFiltered = 32
 
-  constructor() { }
+  constructor(
+    private dataService: DataService
+  ) { }
 
   ngOnInit() {
+    this.filterIntervalOptions = this.dataService.getIntervalOptions()
+    this.filterOptions = this.dataService.getHomeFilterOptions()
   }
 
 }
