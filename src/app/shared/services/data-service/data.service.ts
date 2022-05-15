@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { DefaultFilterOption } from '../../models/filters.model';
+import { Register } from '../../models/data.model';
 
 @Injectable({
   providedIn: 'root'
@@ -33,6 +34,17 @@ export class DataService {
     }
   ]
 
+  private mockRegistersData:Register[] = [
+    {
+      id: 1,
+      title: '',
+      description: '',
+      type: '',
+      value: 2,
+      register_date: '2022-05-15 16:00:00'
+    }
+  ]
+
   constructor() { }
 
   getIntervalOptions() : DefaultFilterOption[] {
@@ -41,6 +53,10 @@ export class DataService {
 
   getHomeFilterOptions() : DefaultFilterOption[] {
     return this.filterOptions
+  }
+
+  getRegisters() : Register[] {
+    return this.mockRegistersData
   }
 
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DefaultFilterOption } from 'src/app/shared/models/filters.model';
 
 import { DataService } from 'src/app/shared/services/data-service/data.service';
+import { Register } from 'src/app/shared/models/data.model';
 
 @Component({
   selector: 'app-history',
@@ -11,6 +12,7 @@ import { DataService } from 'src/app/shared/services/data-service/data.service';
 export class HistoryPage implements OnInit {
 
   public filterOptions: DefaultFilterOption[]
+  registers: Register[]
 
   constructor(
     private dataService: DataService
@@ -18,6 +20,7 @@ export class HistoryPage implements OnInit {
 
   ngOnInit() {
     this.filterOptions = this.dataService.getIntervalOptions()
+    this.registers = this.dataService.getRegisters()
   }
 
 }
