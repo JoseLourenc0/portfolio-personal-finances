@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { PieChart } from '../shared/models/charts.model';
+import { PieChart } from '../../shared/models/charts.model';
 
 @Component({
   selector: 'app-home',
