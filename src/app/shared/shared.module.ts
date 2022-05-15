@@ -3,19 +3,25 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
+import { NgApexchartsModule } from 'ng-apexcharts';
+
 import { PageHeaderComponent } from './components/template/page-header/page-header.component';
+import { PieChartComponent } from './components/charts/pie-chart/pie-chart.component';
 
 @NgModule({
   declarations: [
-    PageHeaderComponent
+    PageHeaderComponent,
+    PieChartComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
-    IonicModule
+    IonicModule,
+    NgApexchartsModule
   ],
   exports: [
-    PageHeaderComponent
+    PageHeaderComponent,
+    PieChartComponent
   ]
 })
 export class SharedModule { }
