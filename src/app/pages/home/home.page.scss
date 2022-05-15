@@ -8,3 +8,15 @@
 .right-float {
     float: right;
 }
+
+.history-button {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    span {
+        margin-left: 8px;
+    }
+
+}
