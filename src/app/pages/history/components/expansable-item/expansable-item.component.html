@@ -2,7 +2,7 @@
 
   <ion-card-header (click) = 'isInfoShown = !isInfoShown'>
     <span numberColor class="data-value">
-      {{ data.value }}
+      {{ data.value | currency }}
     </span>
     <span class="date">
       {{ data.register_date | date: 'dd/MM/YYYY' }}

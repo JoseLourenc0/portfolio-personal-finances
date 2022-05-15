@@ -35,10 +35,16 @@
     </ion-card>
 
     <ion-card>
-        <ion-button color="success" expand="block" class="history-button" routerLink = '/history'>
+        <ion-button color="success" expand="block" class="history-button" routerLink='/history'>
             <ion-icon name="time"></ion-icon>
             <span>History</span>
         </ion-button>
     </ion-card>
+
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed" routerLink="add-register">
+        <ion-fab-button>
+            <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
 
 </ion-content>
