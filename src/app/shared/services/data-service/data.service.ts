@@ -37,7 +37,6 @@ export class DataService {
   private mockRegistersData:Register[] = [
     {
       id: 1,
-      title: '',
       description: '',
       type: '',
       value: 2,

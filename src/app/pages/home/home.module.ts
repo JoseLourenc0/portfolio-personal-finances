@@ -1,8 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
+
+import { NgxMaskModule, IConfig, MaskPipe } from 'ngx-mask'
+export let options: Partial<IConfig> | (() => Partial<IConfig>)
 
 import { HomePageRoutingModule } from './home-routing.module';
 
@@ -15,9 +18,12 @@ import { AddRegisterComponent } from './components/add-register/add-register.com
     CommonModule,
     FormsModule,
     IonicModule,
+    ReactiveFormsModule,
+    NgxMaskModule.forRoot(),
     HomePageRoutingModule,
     SharedModule
   ],
-  declarations: [HomePage, AddRegisterComponent]
+  declarations: [HomePage, AddRegisterComponent],
+  providers: [MaskPipe]
 })
 export class HomePageModule {}

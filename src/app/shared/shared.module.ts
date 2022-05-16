@@ -8,12 +8,14 @@ import { NgApexchartsModule } from 'ng-apexcharts';
 import { PageHeaderComponent } from './components/template/page-header/page-header.component';
 import { PieChartComponent } from './components/charts/pie-chart/pie-chart.component';
 import { NumberColorDirective } from './directives/number-color/number-color.directive';
+import { TextIconButtonDirective } from './directives/text-icon-button/text-icon-button.directive';
 
 @NgModule({
   declarations: [
     PageHeaderComponent,
     PieChartComponent,
-    NumberColorDirective
+    NumberColorDirective,
+    TextIconButtonDirective
   ],
   imports: [
     CommonModule,
@@ -24,7 +26,8 @@ import { NumberColorDirective } from './directives/number-color/number-color.dir
   exports: [
     PageHeaderComponent,
     PieChartComponent,
-    NumberColorDirective
+    NumberColorDirective,
+    TextIconButtonDirective
   ]
 })
 export class SharedModule { }

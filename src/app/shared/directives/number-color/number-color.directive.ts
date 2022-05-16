@@ -3,7 +3,7 @@ import { Directive, ElementRef, AfterViewInit } from '@angular/core';
 @Directive({
   selector: '[numberColor]'
 })
-export class NumberColorDirective {
+export class NumberColorDirective implements AfterViewInit {
 
   constructor(private element: ElementRef) {}
   
