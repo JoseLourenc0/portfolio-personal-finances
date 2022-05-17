@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IonicEventsService } from 'src/app/shared/services/ionic-events/ionic-events.service';
+import { DataService } from 'src/app/shared/services/data-service/data.service';
+import { Type } from 'src/app/shared/models/data.model';
 
 @Component({
   selector: 'app-add-type',
@@ -11,14 +13,17 @@ export class AddTypeComponent implements OnInit {
 
   public form: FormGroup
 
-  public mockedTypes = ['groceries', 'beer']
+  public types
 
   constructor(
     private formBuilder: FormBuilder,
-    private ionicEvents: IonicEventsService
+    private ionicEvents: IonicEventsService,
+    private dataService: DataService
   ) { }
 
   ngOnInit() {
+    
+    this.getAllTypes()
 
     this.form = this.formBuilder.group({
       type: [null, Validators.required],
@@ -27,16 +32,28 @@ export class AddTypeComponent implements OnInit {
 
   }
 
-  onSubmit() {
+  async onSubmit() {
 
     if(!this.form.valid) {
       return this.ionicEvents.presentToast('Invalid Information', 'Please verify all fields and try again', 'danger')
     }
 
-    this.form.value.value = this.form.value.value.replaceAll(' ', '')
-
     //Save on DB
+    await this.insertNewType(this.form.value)
+    await this.getAllTypes()
+
+    this.ionicEvents.presentToast('New Type Inserted!','', 'success')
     
+  }
+
+  async getAllTypes () {
+    const allTypes = await this.dataService.getAll('type')
+    this.types = allTypes
+    return allTypes
+  }
+
+  async insertNewType(value: Type) {
+    return await this.dataService.insert('type', value)
   }
 
 }

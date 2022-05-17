@@ -14,7 +14,7 @@
 
         <ion-item>
           <ion-label>Earning or Expanse</ion-label>
-          <ion-select placeholder="Select One" formControlName = "type">
+          <ion-select placeholder="Select One" formControlName = "is_earning">
             <ion-select-option value = "1"> Earning </ion-select-option>
             <ion-select-option value = "0"> Expanse </ion-select-option>
           </ion-select>
@@ -27,6 +27,20 @@
 
       </form>
 
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>
+        All Types
+      </ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let type of types"> {{ type.type }}</ion-item>
+      </ion-list>
     </ion-card-content>
   </ion-card>
 
