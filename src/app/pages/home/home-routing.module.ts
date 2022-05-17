@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AddRegisterComponent } from './components/add-register/add-register.component';
 
 import { HomePage } from './home.page';
+import { AddRegisterComponent } from './components/add-register/add-register.component';
+import { AddTypeComponent } from './components/add-type/add-type.component';
 
 const routes: Routes = [
   {
@@ -15,6 +16,10 @@ const routes: Routes = [
       {
         path: 'add-register',
         component: AddRegisterComponent
+      },
+      {
+        path: 'add-type',
+        component: AddTypeComponent
       }
     ]
   },

@@ -12,6 +12,7 @@ import { HomePageRoutingModule } from './home-routing.module';
 import { HomePage } from './home.page';
 import { SharedModule } from '../../shared/shared.module';
 import { AddRegisterComponent } from './components/add-register/add-register.component';
+import { AddTypeComponent } from './components/add-type/add-type.component';
 
 @NgModule({
   imports: [
@@ -23,7 +24,7 @@ import { AddRegisterComponent } from './components/add-register/add-register.com
     HomePageRoutingModule,
     SharedModule
   ],
-  declarations: [HomePage, AddRegisterComponent],
+  declarations: [HomePage, AddRegisterComponent, AddTypeComponent],
   providers: [MaskPipe]
 })
 export class HomePageModule {}
