@@ -100,4 +100,9 @@ export class HomePage implements OnInit {
 
   }
 
+  shouldRefresh($event) {
+    this.ngOnInit()
+    $event.target.complete()
+  }
+
 }

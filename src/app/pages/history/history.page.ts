@@ -44,4 +44,9 @@ export class HistoryPage implements OnInit {
 
   }
 
+  shouldRefresh($event) {
+    this.ngOnInit()
+    $event.target.complete()
+  }
+
 }

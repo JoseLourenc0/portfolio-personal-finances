@@ -59,4 +59,9 @@ export class AddTypeComponent implements OnInit {
     return await this.dataService.insert('type', value)
   }
 
+  shouldRefresh($event) {
+    this.ngOnInit()
+    $event.target.complete()
+  }
+
 }

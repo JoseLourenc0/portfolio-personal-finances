@@ -2,6 +2,10 @@
 
 <ion-content [fullscreen]="true">
 
+    <shared-refresher-component
+        (refreshPage) = 'shouldRefresh($event)'
+    ></shared-refresher-component>
+
     <div class="chart-container">
         <shared-pie-chart-component [chartData]="chartData"></shared-pie-chart-component>
     </div>

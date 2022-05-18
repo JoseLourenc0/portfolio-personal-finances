@@ -11,12 +11,14 @@ import { NumberColorDirective } from './directives/number-color/number-color.dir
 import { TextIconButtonDirective } from './directives/text-icon-button/text-icon-button.directive';
 import { ExpansableItemComponent } from './components/expansable-item/expansable-item.component';
 import { RouterModule } from '@angular/router';
+import { RefresherComponent } from './components/template/refresher/refresher.component';
 
 @NgModule({
   declarations: [
     PageHeaderComponent,
     PieChartComponent,
     ExpansableItemComponent,
+    RefresherComponent,
     NumberColorDirective,
     TextIconButtonDirective
   ],
@@ -31,6 +33,7 @@ import { RouterModule } from '@angular/router';
     PageHeaderComponent,
     PieChartComponent,
     ExpansableItemComponent,
+    RefresherComponent,
     NumberColorDirective,
     TextIconButtonDirective
   ]
