@@ -18,6 +18,10 @@ export class DataService {
     {
       value: 2,
       text: 'Last Month'
+    },
+    {
+      value: 3,
+      text: 'All Time'
     }
   ]
 
@@ -69,6 +73,11 @@ export class DataService {
   }
 
   async getById(key: string, id: number) {
+    
+    const result = await this.getAll(key)
+    let selectedItem = [...result][id - 1]
+
+    return selectedItem
 
   }
 
@@ -78,7 +87,7 @@ export class DataService {
 
     if(!result) {
       let r = {...value}
-      r.id = 0
+      r.id = 1
       return await Storage.set({
         key,
         value: JSON.stringify([r])
@@ -99,7 +108,7 @@ export class DataService {
 
     let result = await this.getAll(key)
     let rVal = {...value}
-    rVal.id = id
+    rVal.id = id - 1
 
     result = ([...result] as Type[] | Register[])
     result[id] = rVal
@@ -114,6 +123,18 @@ export class DataService {
   }
 
   async remove(key: string, id: number) {
+
+    let result = await this.getAll(key)
+    let removedItem = [...result][id-1]
+
+    result.splice(id,1)
+
+    await Storage.set({
+      key,
+      value: JSON.stringify(result)
+    })
+
+    return removedItem
 
   }
 

@@ -10,7 +10,7 @@ export class NumberColorDirective implements AfterViewInit {
   ngAfterViewInit() {
     const elementD = this.element.nativeElement
     let color = '#ff4961'
-    if(Number(elementD.innerHTML.replace('$','')) > 0) color = '#2fdf75'
+    if(Number(elementD.innerHTML.replace('$','').replaceAll(',','')) > 0) color = '#2fdf75'
     elementD.style.color = color
   }
 

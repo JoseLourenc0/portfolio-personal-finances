@@ -30,7 +30,7 @@
     </ion-card-content>
   </ion-card>
 
-  <ion-card>
+  <!-- <ion-card>
     <ion-card-header>
       <ion-card-title>
         All Types
@@ -42,6 +42,11 @@
         <ion-item *ngFor="let type of types"> {{ type.type }}</ion-item>
       </ion-list>
     </ion-card-content>
-  </ion-card>
+  </ion-card> -->
+
+  <shared-expansable-item-component
+    *ngFor="let type of types"
+    [dataType]="type"
+  ></shared-expansable-item-component>
 
 </ion-content>

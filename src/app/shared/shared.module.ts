@@ -9,11 +9,13 @@ import { PageHeaderComponent } from './components/template/page-header/page-head
 import { PieChartComponent } from './components/charts/pie-chart/pie-chart.component';
 import { NumberColorDirective } from './directives/number-color/number-color.directive';
 import { TextIconButtonDirective } from './directives/text-icon-button/text-icon-button.directive';
+import { ExpansableItemComponent } from './components/expansable-item/expansable-item.component';
 
 @NgModule({
   declarations: [
     PageHeaderComponent,
     PieChartComponent,
+    ExpansableItemComponent,
     NumberColorDirective,
     TextIconButtonDirective
   ],
@@ -26,6 +28,7 @@ import { TextIconButtonDirective } from './directives/text-icon-button/text-icon
   exports: [
     PageHeaderComponent,
     PieChartComponent,
+    ExpansableItemComponent,
     NumberColorDirective,
     TextIconButtonDirective
   ]

@@ -32,6 +32,12 @@ export class PieChartComponent implements OnInit {
 
   constructor() { }
 
+  ngOnChanges(changes) {
+    if(changes) {
+      this.ngOnInit()
+    }
+  }
+
   ngOnInit() {
     this.chartOptions = {
       series: this.chartData.series,

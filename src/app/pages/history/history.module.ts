@@ -9,8 +9,6 @@ import { HistoryPageRoutingModule } from './history-routing.module';
 import { HistoryPage } from './history.page';
 import { SharedModule } from 'src/app/shared/shared.module';
 
-import { ExpansableItemComponent } from './components/expansable-item/expansable-item.component';
-
 @NgModule({
   imports: [
     CommonModule,
@@ -19,6 +17,6 @@ import { ExpansableItemComponent } from './components/expansable-item/expansable
     HistoryPageRoutingModule,
     SharedModule
   ],
-  declarations: [HistoryPage, ExpansableItemComponent]
+  declarations: [HistoryPage]
 })
 export class HistoryPageModule {}

@@ -9,7 +9,7 @@ export interface Register {
 export interface Type {
     id?: number | string
     type: string
-    is_earning: 0 | 1
+    is_earning: 0 | 1 | '0' | '1'
     register_date: Date | string
 }
 

@@ -14,9 +14,9 @@
     </ion-list>
   </ion-card>
 
-  <expansable-item-component
-    *ngFor = "let register of registers"
-    [data] = 'register'
-  ></expansable-item-component>
+  <shared-expansable-item-component
+    *ngFor="let register of registers"
+    [dataRegister]="register"
+  ></shared-expansable-item-component>
 
 </ion-content>

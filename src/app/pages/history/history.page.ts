@@ -20,7 +20,11 @@ export class HistoryPage implements OnInit {
 
   ngOnInit() {
     this.filterOptions = this.dataService.getIntervalOptions()
-    this.registers = this.dataService.getRegisters()
+    this.getRegisters()
+  }
+
+  async getRegisters() {
+    this.registers = await this.dataService.getAll('register') as Register[]
   }
 
 }

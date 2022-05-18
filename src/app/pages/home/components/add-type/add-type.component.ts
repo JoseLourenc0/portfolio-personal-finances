@@ -38,8 +38,11 @@ export class AddTypeComponent implements OnInit {
       return this.ionicEvents.presentToast('Invalid Information', 'Please verify all fields and try again', 'danger')
     }
 
+    let data = {...this.form.value}
+    data.register_date = new Date()
+
     //Save on DB
-    await this.insertNewType(this.form.value)
+    await this.insertNewType(data)
     await this.getAllTypes()
 
     this.ionicEvents.presentToast('New Type Inserted!','', 'success')

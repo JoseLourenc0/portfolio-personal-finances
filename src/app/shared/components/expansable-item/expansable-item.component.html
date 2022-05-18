@@ -1,0 +1,46 @@
+<ion-card class="ion-activatable ripple-parent">
+
+  <ion-card-header (click) = 'isInfoShown = !isInfoShown'>
+
+    <span numberColor class="data-value" *ngIf="dataRegister">
+      {{ dataRegister.value | currency }}
+    </span>
+    <span class="data-value earning" *ngIf="dataType" [ngClass]="{'expanse' : dataType.is_earning == '0'}">
+      {{ dataType.type }}
+    </span>
+
+    <span class="date" *ngIf="dataRegister">
+      {{ dataRegister.register_date | date: 'dd/MM/YYYY' }}
+    </span>
+
+    <span class="date" *ngIf="dataType">
+      {{ dataType.register_date | date: 'dd/MM/YYYY' }}
+    </span>
+
+  </ion-card-header>
+
+  <ion-card-content [hidden]="!isInfoShown">
+
+    <ion-list *ngIf = "dataRegister">
+      <ion-item><span class="data-detail">ID:</span> {{ dataRegister.id }}</ion-item>
+      <ion-item><span class="data-detail">Type:</span> {{ dataRegister.type }}</ion-item>
+      <ion-item><span class="data-detail">Description:</span> {{ dataRegister.description }}</ion-item>
+      <ion-item><span class="data-detail">Registered:</span> {{ dataRegister.register_date | date: 'dd/MM/YYYY HH:mm:ss' }}</ion-item>
+    </ion-list>
+
+    <ion-list *ngIf = 'dataType'>
+      <ion-item><span class="data-detail">ID:</span> {{ dataType.id }}</ion-item>
+      <ion-item><span class="data-detail">Type:</span> {{ dataType.type }}</ion-item>
+      <ion-item><span class="data-detail">Is:</span> {{ dataType.is_earning == '1' ? 'Earning' : 'Expanse' }}</ion-item>
+      <ion-item><span class="data-detail">Registered:</span> {{ dataType.register_date | date: 'dd/MM/YYYY HH:mm:ss' }}</ion-item>
+    </ion-list>
+
+    <div class="buttons-container">
+      <ion-button color="warning"><ion-icon name="create"></ion-icon></ion-button>
+      <ion-button color="danger"><ion-icon name="trash"></ion-icon></ion-button>
+    </div>
+
+  </ion-card-content>
+
+  <ion-ripple-effect></ion-ripple-effect>
+</ion-card>

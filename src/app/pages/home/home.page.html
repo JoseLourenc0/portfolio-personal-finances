@@ -3,14 +3,14 @@
 <ion-content [fullscreen]="true">
 
     <div class="chart-container">
-        <shared-pie-chart-component [chartData]="mockData"></shared-pie-chart-component>
+        <shared-pie-chart-component [chartData]="chartData"></shared-pie-chart-component>
     </div>
 
     <ion-card>
         <ion-list>
             <ion-item>
                 <ion-label>Type</ion-label>
-                <ion-select placeholder="Select One">
+                <ion-select placeholder="Select One" (ionChange) = 'filterData()' [(ngModel)] = 'typeFilter'>
                     <ion-select-option *ngFor="let option of filterOptions" [value]="option.value">{{ option.text }}
                     </ion-select-option>
                 </ion-select>
@@ -18,7 +18,7 @@
 
             <ion-item>
                 <ion-label>Interval</ion-label>
-                <ion-select placeholder="Select One">
+                <ion-select placeholder="Select One" (ionChange) = 'filterData()' [(ngModel)] = 'intervalFilter'>
                     <ion-select-option *ngFor="let optionFilter of filterIntervalOptions" [value]="optionFilter.value">
                         {{
                         optionFilter.text }}</ion-select-option>
@@ -30,7 +30,7 @@
 
     <ion-card>
         <ion-card-header>
-            <ion-card-title>Total: <span numberColor class="right-float">{{ totalFiltered }}</span></ion-card-title>
+            <ion-card-title>Total: <span class="right-float green-text" [ngClass]="{'red-text': totalFiltered < 0}">{{ totalFiltered }}</span></ion-card-title>
         </ion-card-header>
     </ion-card>
 
