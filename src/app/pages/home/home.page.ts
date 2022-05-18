@@ -59,7 +59,7 @@ export class HomePage implements OnInit {
     //? If last month
     if(this.intervalFilter === 2) targetMonth = targetMonth - 1 
 
-    //? If current month
+    //? If not all months
     if(this.intervalFilter !== 3) filteredData = filteredData.filter(data => new Date(data.register_date).getMonth() === targetMonth)
 
     switch(this.typeFilter) {

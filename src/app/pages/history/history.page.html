@@ -6,7 +6,7 @@
     <ion-list>
       <ion-item>
         <ion-label>Filter Date</ion-label>
-        <ion-select placeholder="Select One">
+        <ion-select placeholder="Select One" (ionChange) = 'filterData()' [(ngModel)] = 'intervalFilter'>
           <ion-select-option *ngFor="let option of filterOptions" [value]="option.value">{{ option.text }}
           </ion-select-option>
         </ion-select>
@@ -15,7 +15,7 @@
   </ion-card>
 
   <shared-expansable-item-component
-    *ngFor="let register of registers"
+    *ngFor="let register of filteredRegisters"
     [dataRegister]="register"
     [editRouterLink]="'/home/edit/register/' + register.id"
   ></shared-expansable-item-component>

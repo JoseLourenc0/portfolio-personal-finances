@@ -12,7 +12,9 @@ import { Register } from 'src/app/shared/models/data.model';
 export class HistoryPage implements OnInit {
 
   public filterOptions: DefaultFilterOption[]
-  registers: Register[]
+  private registers: Register[]
+  public filteredRegisters: Register[]
+  public intervalFilter: number = 3
 
   constructor(
     private dataService: DataService
@@ -25,6 +27,21 @@ export class HistoryPage implements OnInit {
 
   async getRegisters() {
     this.registers = await this.dataService.getAll('register') as Register[]
+    this.filterData()
+  }
+
+  filterData() {
+    let targetMonth = new Date().getMonth()
+    let filteredData = [...this.registers]
+
+    //? If last month
+    if(this.intervalFilter === 2) targetMonth = targetMonth - 1 
+
+    //? If not all months
+    if(this.intervalFilter !== 3) filteredData = filteredData.filter(data => new Date(data.register_date).getMonth() === targetMonth)
+
+    this.filteredRegisters = filteredData
+
   }
 
 }
