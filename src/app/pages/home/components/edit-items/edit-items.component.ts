@@ -33,41 +33,45 @@ export class EditItemsComponent implements OnInit {
   ngOnInit() {
     this.typeEdit = this.route.snapshot.paramMap.get('item_type')
     this.id = this.route.snapshot.paramMap.get('id')
-
+    
     if((this.typeEdit !== 'type' && this.typeEdit !== 'register') || !this.id) return this.router.navigate(['/home'])
-
+    
     if(this.typeEdit === 'type') {
   
       this.form = this.formBuilder.group({
         type: [null, Validators.required],
         is_earning: [null, Validators.required],
+        register_date: [null, Validators.required]
       })
 
       this.dataService.getById(this.typeEdit, this.id as unknown as number).then((r: Type) => {
         this.register_date = r.register_date
         this.form.setValue({
           type: r.type,
-          is_earning: r.is_earning
+          is_earning: r.is_earning,
+          register_date: r.register_date
         })
       })
     }
-
+    
     if(this.typeEdit === 'register') {
-
+      
       this.getAllTypes()
 
       this.form = this.formBuilder.group({
         value: [null, Validators.required],
         type: [null, Validators.required],
+        register_date: [null, Validators.required],
         description: [null],
       })
-
+      
       this.dataService.getById('register', this.id as unknown as number).then((r: Register) => {
         this.register_date = r.register_date
         this.form.setValue({
           value: r.value,
           type: r.type,
-          description: r.description
+          description: r.description,
+          register_date: r.register_date
         })
       })
 
@@ -82,9 +86,8 @@ export class EditItemsComponent implements OnInit {
     }
 
     let data = {...this.form.value}
-    data.register_date = this.register_date
 
-    if(this.typeEdit === 'register') {
+    if(this.typeEdit === 'register' && isNaN(data.value)) {
       data.value = Number(data.value.replaceAll(' ', ''))
       
       if(this.types.find(e => e.type === data.type).is_earning == 0) data.value = -data.value
@@ -105,7 +108,6 @@ export class EditItemsComponent implements OnInit {
 
   async updateItem(data) {
 
-    console.log(data)
     this.dataService.update(this.typeEdit, this.id as unknown as number, data).then(() => {
       this.ionicEvents.presentToast(`${this.typeEdit.toUpperCase()} Successfully Updated!`,'', 'success')
     })

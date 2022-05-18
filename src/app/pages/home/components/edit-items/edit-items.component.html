@@ -39,6 +39,21 @@
           <ion-input formControlName='description'></ion-input>
         </ion-item>
 
+        <ion-item>
+          <ion-label>Date - {{ form.value.register_date | date: 'dd/MM/YYYY HH:mm:ss' }}</ion-label>
+          <ion-button fill="clear" id="open-date-input-2">
+            <ion-icon icon="calendar"></ion-icon>
+          </ion-button>
+          <ion-popover trigger="open-date-input-2" show-backdrop="false">
+            <ng-template>
+              <ion-datetime
+                formControlName = 'register_date'
+                #popoverDatetime2
+              ></ion-datetime>
+            </ng-template>
+          </ion-popover>
+        </ion-item>
+
         <ion-button expand="block" type="submit" textIconButton>
           <ion-icon name="add-circle"></ion-icon>
           <span>Edit {{ typeEdit }}</span>

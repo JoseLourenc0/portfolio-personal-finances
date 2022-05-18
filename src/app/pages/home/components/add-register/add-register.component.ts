@@ -31,7 +31,15 @@ export class AddRegisterComponent implements OnInit {
     this.form = this.formBuilder.group({
       value: [null, Validators.required],
       type: [null, Validators.required],
-      description: [null],
+      register_date: [null, Validators.required],
+      description: [null]
+    })
+
+    this.form.setValue({
+      value: null,
+      type: null,
+      description: null,
+      register_date: new Date().toISOString()
     })
 
   }
@@ -46,8 +54,6 @@ export class AddRegisterComponent implements OnInit {
     data.value = Number(data.value.replaceAll(' ', ''))
     
     if(this.types.find(e => e.type === data.type).is_earning == 0) data.value = -data.value
-
-    data.register_date = new Date()
 
     //Save on DB
     this.dataService.insert('register',data).then(() => {
