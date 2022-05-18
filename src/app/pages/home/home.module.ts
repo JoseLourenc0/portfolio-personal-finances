@@ -13,6 +13,7 @@ import { HomePage } from './home.page';
 import { SharedModule } from '../../shared/shared.module';
 import { AddRegisterComponent } from './components/add-register/add-register.component';
 import { AddTypeComponent } from './components/add-type/add-type.component';
+import { EditItemsComponent } from './components/edit-items/edit-items.component';
 
 @NgModule({
   imports: [
@@ -24,7 +25,7 @@ import { AddTypeComponent } from './components/add-type/add-type.component';
     HomePageRoutingModule,
     SharedModule
   ],
-  declarations: [HomePage, AddRegisterComponent, AddTypeComponent],
+  declarations: [HomePage, AddRegisterComponent, AddTypeComponent, EditItemsComponent],
   providers: [MaskPipe]
 })
 export class HomePageModule {}

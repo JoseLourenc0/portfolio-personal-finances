@@ -17,6 +17,7 @@
   <shared-expansable-item-component
     *ngFor="let register of registers"
     [dataRegister]="register"
+    [editRouterLink]="'/home/edit/register/' + register.id"
   ></shared-expansable-item-component>
 
 </ion-content>

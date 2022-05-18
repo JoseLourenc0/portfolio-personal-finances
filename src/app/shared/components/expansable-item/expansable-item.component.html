@@ -36,8 +36,8 @@
     </ion-list>
 
     <div class="buttons-container">
-      <ion-button color="warning"><ion-icon name="create"></ion-icon></ion-button>
-      <ion-button color="danger"><ion-icon name="trash"></ion-icon></ion-button>
+      <ion-button color="warning" [routerLink] = 'editRouterLink'><ion-icon name="create"></ion-icon></ion-button>
+      <ion-button color="danger" (click) = 'removeItem()'><ion-icon name="trash"></ion-icon></ion-button>
     </div>
 
   </ion-card-content>

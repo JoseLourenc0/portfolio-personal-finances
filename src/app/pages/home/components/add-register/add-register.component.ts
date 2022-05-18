@@ -62,7 +62,6 @@ export class AddRegisterComponent implements OnInit {
 
   async getAllTypes() {
     this.types = await this.dataService.getAll('type') as Type[]
-    console.log(this.types)
   }
 
 }

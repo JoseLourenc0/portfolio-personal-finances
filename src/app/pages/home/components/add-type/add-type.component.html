@@ -47,6 +47,7 @@
   <shared-expansable-item-component
     *ngFor="let type of types"
     [dataType]="type"
+    [editRouterLink]="'/home/edit/type/' + type.id"
   ></shared-expansable-item-component>
 
 </ion-content>

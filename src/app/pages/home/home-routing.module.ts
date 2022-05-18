@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomePage } from './home.page';
 import { AddRegisterComponent } from './components/add-register/add-register.component';
 import { AddTypeComponent } from './components/add-type/add-type.component';
+import { EditItemsComponent } from './components/edit-items/edit-items.component';
 
 const routes: Routes = [
   {
@@ -20,6 +21,10 @@ const routes: Routes = [
       {
         path: 'add-type',
         component: AddTypeComponent
+      },
+      {
+        path: 'edit/:item_type/:id',
+        component: EditItemsComponent
       }
     ]
   },

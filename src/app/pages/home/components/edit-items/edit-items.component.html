@@ -1,0 +1,52 @@
+<shared-page-header-component [pageName]="'Edit ' + typeEdit" [backButton]=true></shared-page-header-component>
+
+<ion-content [fullscreen]="true">
+
+  <ion-card>
+    <ion-card-content>
+
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+        <!-- TYPE -->
+        <ion-item *ngIf = "typeEdit === 'type'">
+          <ion-label position="floating">Type</ion-label>
+          <ion-input formControlName='type'></ion-input>
+        </ion-item>
+
+        <ion-item *ngIf = "typeEdit === 'type'">
+          <ion-label>Earning or Expanse</ion-label>
+          <ion-select placeholder="Select One" formControlName = "is_earning">
+            <ion-select-option value = "1"> Earning </ion-select-option>
+            <ion-select-option value = "0"> Expanse </ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <!-- REGISTER -->
+        <ion-item *ngIf = "typeEdit === 'register'">
+          <ion-label position="floating">Value</ion-label>
+          <ion-input formControlName='value' (ionChange)="updateWithMask($event)"></ion-input>
+        </ion-item>
+
+        <ion-item *ngIf = "typeEdit === 'register'">
+          <ion-label>Type</ion-label>
+          <ion-select placeholder="Select One" formControlName = "type">
+            <ion-select-option *ngFor = "let type of types" [value]="type.type">{{ type.type }}</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item *ngIf = "typeEdit === 'register'">
+          <ion-label position="floating">Description</ion-label>
+          <ion-input formControlName='description'></ion-input>
+        </ion-item>
+
+        <ion-button expand="block" type="submit" textIconButton>
+          <ion-icon name="add-circle"></ion-icon>
+          <span>Edit {{ typeEdit }}</span>
+        </ion-button>
+
+      </form>
+
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

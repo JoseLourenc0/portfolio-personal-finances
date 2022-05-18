@@ -10,6 +10,7 @@ import { PieChartComponent } from './components/charts/pie-chart/pie-chart.compo
 import { NumberColorDirective } from './directives/number-color/number-color.directive';
 import { TextIconButtonDirective } from './directives/text-icon-button/text-icon-button.directive';
 import { ExpansableItemComponent } from './components/expansable-item/expansable-item.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { ExpansableItemComponent } from './components/expansable-item/expansable
     CommonModule,
     FormsModule,
     IonicModule,
+    RouterModule,
     NgApexchartsModule
   ],
   exports: [

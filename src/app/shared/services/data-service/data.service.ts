@@ -108,14 +108,14 @@ export class DataService {
 
     let result = await this.getAll(key)
     let rVal = {...value}
-    rVal.id = id - 1
+    rVal.id = Number(id)
 
     result = ([...result] as Type[] | Register[])
-    result[id] = rVal
+    result[id - 1] = rVal
 
     await Storage.set({
       key,
-      value: JSON.stringify(rVal)
+      value: JSON.stringify(result)
     })
 
     return rVal
@@ -127,7 +127,7 @@ export class DataService {
     let result = await this.getAll(key)
     let removedItem = [...result][id-1]
 
-    result.splice(id,1)
+    result.splice(id - 1, 1)
 
     await Storage.set({
       key,
