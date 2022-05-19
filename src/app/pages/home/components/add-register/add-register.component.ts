@@ -70,4 +70,9 @@ export class AddRegisterComponent implements OnInit {
     this.types = await this.dataService.getAll('type') as Type[]
   }
 
+  shouldRefresh($event) {
+    this.ngOnInit()
+    $event.target.complete()
+  }
+
 }

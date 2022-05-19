@@ -13,8 +13,8 @@ import { Register } from 'src/app/shared/models/data.model';
 export class HomePage implements OnInit {
 
   chartData: PieChart = {
-    labels: ['groceries', 'beer'],
-    series: [300, 200]
+    labels: [''],
+    series: [300]
   }
 
   public registers: Register[]
@@ -23,7 +23,7 @@ export class HomePage implements OnInit {
 
   public filterIntervalOptions: DefaultFilterOption[]
 
-  public totalFiltered = 32
+  public totalFiltered = 0
   public typeFilter: number
   public intervalFilter: number
 

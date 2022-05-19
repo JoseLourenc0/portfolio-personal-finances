@@ -138,4 +138,21 @@ export class DataService {
 
   }
 
+  //? Device Settings
+  async getDeviceConfig() {
+    const result = await Storage.get({key : 'deviceConfig'})
+    const parsedResult = result ? JSON.parse((result.value as unknown as string)) : ''
+    return parsedResult
+  }
+
+  async setDeviceConfig(value: any) {
+
+    await Storage.set({
+      key: 'deviceConfig',
+      value: JSON.stringify(value)
+    })
+
+    return value
+  }
+
 }

@@ -12,6 +12,11 @@
             </ion-item>
           </ion-menu-toggle>
         </ion-list>
+        <!-- switchable theme -->
+        <ion-item>
+          <ion-label>Color Theme</ion-label>
+          <ion-toggle (ionChange) = 'onToggleColorTheme($event)' [value] = 'isDarkTheme'></ion-toggle>
+        </ion-item>
       </ion-content>
     </ion-menu>
     <ion-router-outlet id="main-content"></ion-router-outlet>

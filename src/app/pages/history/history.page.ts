@@ -31,6 +31,9 @@ export class HistoryPage implements OnInit {
   }
 
   filterData() {
+    
+    if(!this.registers) return
+
     let targetMonth = new Date().getMonth()
     let filteredData = [...this.registers]
 
